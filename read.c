@@ -64,4 +64,23 @@ lseek(fd,length * -1,SEEK_CUR);
 printf("[DEBUG] found a %d byte note for user id %d\n",length,note_uid);
 return length;
 }
+int search_note(char *note,char *keyword) {
+int i,keyword_length,match=0;
+keyword_length = strlen(keyword);
+if(keyword_length == 0)
+    return -1;
+for(i=0;i<strlen(note);i++) {
+if(note[i] == keyword[match])
+    match++;
+else {
+if(note[i] == keyword[0])
+    match = 1;
+else
+    match = 0;
+}
+if(match == keyword_length)
+    return  1;
+}
+return  0;
+}
 
