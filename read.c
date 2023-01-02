@@ -43,4 +43,25 @@ printf(note_buffer);
 }
 return 1;
 }
+int find_user_note(int fd,int user_uid) {
+int note_uid = 1;
+unsigned char byte;
+int length;
+while(note_uid != user_uid) {
+if(read(fd,&note_uid,4) != 4)
+    return -1;
+if(read(fd,&byte,1) !=1)
+    return -1;
+byte = length = 0;
+while(byte != '\n')  {
+    if(read(fd,&byte,1) != 1) {
+        return -1;
+    }
+    length++;
+}
+}
+lseek(fd,length * -1,SEEK_CUR);
+printf("[DEBUG] found a %d byte note for user id %d\n",length,note_uid);
+return length;
+}
 
