@@ -9,6 +9,13 @@ int print_notes(int,int,char *);
 int find_user_notes(int,int);
 int search_note(char *,char *);
 
-int main(int argc,char *argv[]) {
+void fatal(char *);
 
+int main(int argc,char *argv[]) {
+ int userid,printing=1,fd;
+ char searchstring[100];
+ if(argc > 1)
+ strcpy(searchstring,argv[1]);
+ else
+    searchstring[0] = 0;
 }
