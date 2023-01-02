@@ -9,3 +9,4 @@ void usage(char *prog_name,char *filename) {
     exit(0);
 }
 void fatal(char *);
+void *ec_malloc(unsigned int);
