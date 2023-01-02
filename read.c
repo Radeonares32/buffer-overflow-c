@@ -3,13 +3,11 @@
 #include <string.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#define FILENAME "./notes"
 
-void usage(char *prog_name,char *filename) {
-    printf("Usage %s <data to add to %s>\n",prog_name,filename);
-    exit(0);
-}
-void fatal(char *);
-void *ec_malloc(unsigned int);
+int print_notes(int,int,char *);
+int find_user_notes(int,int);
+int search_note(char *,char *);
 
 int main(int argc,char *argv[]) {
 
