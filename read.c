@@ -3,7 +3,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-#define FILENAME "./notes"
+#define FILENAME "./notes" //data segment
 
 int print_notes(int,int,char *);
 int find_user_notes(int,int);
@@ -18,4 +18,8 @@ int main(int argc,char *argv[]) {
  strcpy(searchstring,argv[1]);
  else
     searchstring[0] = 0;
+ userid = getuid();
+ fd = open(FILENAME,O_RDONLY); // Open the file for read-only access
+ if(fd == -1) {
+ fatal("in main() while opening file for reading !");
 }
