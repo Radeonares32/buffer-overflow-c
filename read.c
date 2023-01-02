@@ -10,3 +10,7 @@ void usage(char *prog_name,char *filename) {
 }
 void fatal(char *);
 void *ec_malloc(unsigned int);
+
+int main(int argc,char *argv[]) {
+
+}
